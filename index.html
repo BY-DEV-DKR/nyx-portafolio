@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Nyx — Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nyx — Desarrollo de sistemas avanzados, optimización y soluciones escalables para comunidades digitales.">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nyx — Advanced Systems Developer">
+    <meta property="og:description"
+        content="Sistemas avanzados, optimización y soluciones escalables para comunidades digitales.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/og-image.png">
+    <meta property="og:locale" content="es_ES">
+    <!-- JSON-LD (basic) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Nyx",
+            "jobTitle": "Advanced Systems Developer",
+            "url": "",
+            "sameAs": []
+        }
+        </script>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav class="nav">
+        <div class="brand">NYX</div>
+        <div class="lang-switch" role="navigation" aria-label="language switch">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-content">
+            <h1 data-i18n="hero.title">NYX</h1>
+            <h2 data-i18n="hero.subtitle">Desarrollador de Sistemas Avanzados</h2>
+            <p data-i18n="hero.lead">Diseño sistemas complejos, optimizados y escalables para comunidades digitales.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="cta" data-i18n="hero.cta">Ver Proyectos</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h3 data-i18n="skills.title">CORE SKILLS</h3>
+
+            <div class="grid">
+                <div class="card">
+                    <h4 data-i18n="skills.card1.title">System Architecture</h4>
+                    <p data-i18n="skills.card1.desc">Diseño de sistemas completos, automatización de procesos y
+                        optimización avanzada.</p>
+                </div>
+
+                <div class="card">
+                    <h4 data-i18n="skills.card2.title">Minecraft Advanced</h4>
+                    <p data-i18n="skills.card2.desc">Servidores custom, economías, rangos, dungeons, menús avanzados y
+                        TPS optimization.</p>
+                </div>
+
+                <div class="card">
+                    <h4 data-i18n="skills.card3.title">Discord Systems</h4>
+                    <p data-i18n="skills.card3.desc">Bots personalizados, tickets, reseñas automáticas, anuncios y
+                        moderación estructurada.</p>
+                </div>
+
+                <div class="card">
+                    <h4 data-i18n="skills.card4.title">Web & UI</h4>
+                    <p data-i18n="skills.card4.desc">Webs oscuras, login systems, UX moderno y diseño orientado a
+                        comunidades.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects" aria-labelledby="projects-title">
+            <h3 id="projects-title" data-i18n="projects.title">PROJECTS</h3>
+
+            <div class="filters" role="tablist" aria-label="Project filters">
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="systems">SYSTEMS</button>
+                <button class="filter-btn" data-filter="community">COMMUNITY</button>
+            </div>
+
+            <div class="grid projects-grid">
+                <article class="project-card" data-tags="systems" tabindex="0">
+                    <h4 data-i18n="projects.p1.title">Nyx Core</h4>
+                    <p data-i18n="projects.p1.desc">Sistema modular para servidores y automatización de procesos.</p>
+                    <button class="btn-details" aria-haspopup="dialog">Details</button>
+                </article>
+
+                <article class="project-card" data-tags="community" tabindex="0">
+                    <h4 data-i18n="projects.p3.title">Nyxary</h4>
+                    <p data-i18n="projects.p3.desc">Comunidad dedicada a la venta de servicios y productos digitales.
+                    </p>
+                    <button class="btn-details" aria-haspopup="dialog">Details</button>
+                </article>
+            </div>
+
+            <div class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+                <div class="modal-content" role="document">
+                    <button class="modal-close" aria-label="Close dialog">✕</button>
+                    <h4 class="modal-title"></h4>
+                    <p class="modal-body"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <h3 data-i18n="experience.title">EXPERIENCE</h3>
+            <p class="text" data-i18n="experience.text">
+                Desarrollo proyectos desde cero con visión a largo plazo, priorizando rendimiento,
+                escalabilidad y control total del sistema.
+            </p>
+        </section>
+
+        <section class="section">
+            <h3 data-i18n="services.title">SERVICES</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 data-i18n="services.card1.title">Desarrollo Web</h4>
+                    <p data-i18n="services.card1.desc">Páginas web modernas, interfaces intuitivas y sistemas de gestión
+                        personalizados.</p>
+                </div>
+
+                <div class="card">
+                    <h4 data-i18n="services.card2.title">Servidores de Discord</h4>
+                    <p data-i18n="services.card2.desc">Desarrollo de servidores de Discord personalizados con bots, tickets, reseñas automáticas y moderación estructurada.</p>
+                </div>
+
+                <div class="card">
+                    <h4 data-i18n="services.card3.title">Bots de Discord</h4>
+                    <p data-i18n="services.card3.desc">Desarrollo de bots personalizados para servidores de Discord con funcionalidades y sistemas avanzados.</p>
+                </div>
+
+                <div class="card">
+                    <h4 data-i18n="services.card4.title">Servidores de Minecraft</h4>
+                    <p data-i18n="services.card4.desc">Desarrollo de servidores de Minecraft personalizados con economías, rangos, dungeons y optimización avanzada.</p>
+                </div>
+                <div class="card">
+                    <h4 data-i18n="services.card5.title">Soporte 24/7 Post-Venta</h4>
+                    <p data-i18n="services.card5.desc">Soporte continuo y mantenimiento para asegurar el rendimiento y la estabilidad del sistema.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3 data-i18n="why.title">WHY NYX</h3>
+            <ul class="why">
+                <li data-i18n="why.li1">No entrego configs, entrego sistemas</li>
+                <li data-i18n="why.li2">Optimización real, no placebo</li>
+                <li data-i18n="why.li3">Diseño limpio y mantenible</li>
+                <li data-i18n="why.li4">Visión profesional y técnica</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-wrap contact-discord">
+            <p>
+                <span data-i18n="footer.contact">Contact:</span>
+                <span id="discord-tag">nyx.root</span>
+                <button id="copy-discord" class="cta small" data-i18n="copy.button">Copy</button>
+            </p>
+        </div>
+    </footer>
+
+    <link rel="preload" href="/assets/og-image.png" as="image">
+    <script src="script.js" defer></script>
+</body>
+
+</html>

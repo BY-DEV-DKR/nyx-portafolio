@@ -10,14 +10,12 @@
     <meta name="theme-color" content="#0a0a0a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Open Graph -->
     <meta property="og:title" content="Nyx — Advanced Systems Developer">
     <meta property="og:description"
         content="Sistemas avanzados, optimización y soluciones escalables para comunidades digitales.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/assets/og-image.png">
     <meta property="og:locale" content="es_ES">
-    <!-- JSON-LD (basic) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -53,7 +51,7 @@
             <h2 data-i18n="hero.subtitle">Desarrollador de Sistemas Avanzados</h2>
             <p data-i18n="hero.lead">Diseño sistemas complejos, optimizados y escalables para comunidades digitales.</p>
             <div class="hero-cta">
-                <a href="#projects" class="cta" data-i18n="hero.cta">Ver Proyectos</a>
+                <a href="#projects" class="cta cta-primary" data-i18n="hero.cta">Ver Proyectos</a>
             </div>
         </div>
     </header>
@@ -89,6 +87,24 @@
             </div>
         </section>
 
+        <section class="section stats-section" aria-labelledby="stats-title">
+            <h3 id="stats-title" data-i18n="stats.title">IMPACTO</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" data-value="23">0</div>
+                    <div class="stat-label" data-i18n="stats.label1">Proyectos Completados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-value="99">0</div>
+                    <div class="stat-label" data-i18n="stats.label3">% Tasa de Satisfacción</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-value="5">0</div>
+                    <div class="stat-label" data-i18n="stats.label4">Años de Experiencia</div>
+                </div>
+            </div>
+        </section>
+
         <section id="projects" class="section projects" aria-labelledby="projects-title">
             <h3 id="projects-title" data-i18n="projects.title">PROJECTS</h3>
 
@@ -102,14 +118,30 @@
                 <article class="project-card" data-tags="systems" tabindex="0">
                     <h4 data-i18n="projects.p1.title">Nyx Core</h4>
                     <p data-i18n="projects.p1.desc">Sistema modular para servidores y automatización de procesos.</p>
-                    <button class="btn-details" aria-haspopup="dialog">Details</button>
+                    <button class="btn-details" aria-haspopup="dialog"><span data-i18n="details.button">Ver
+                            Detalles</span></button>
                 </article>
 
                 <article class="project-card" data-tags="community" tabindex="0">
                     <h4 data-i18n="projects.p3.title">Nyxary</h4>
                     <p data-i18n="projects.p3.desc">Comunidad dedicada a la venta de servicios y productos digitales.
                     </p>
-                    <button class="btn-details" aria-haspopup="dialog">Details</button>
+                    <div class="project-actions">
+                        <button class="btn-details" aria-haspopup="dialog"><span data-i18n="details.button">Ver
+                                Detalles</span></button>
+                        <a href="https://discord.gg/jWnybN5Dfd" target="_blank" rel="noopener noreferrer" class="btn-discord" data-i18n="discord.button">Discord</a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tags="community" tabindex="0">
+                    <h4 data-i18n="projects.p4.title">Exilion Network</h4>
+                    <p data-i18n="projects.p4.desc">Servidor de Minecraft con economías, minijuegos y eventos
+                        personalizados.</p>
+                    <div class="project-actions">
+                        <button class="btn-details" aria-haspopup="dialog"><span data-i18n="details.button">Ver
+                                Detalles</span></button>
+                        <a href="https://discord.gg/dM3FTrZuUK" target="_blank" rel="noopener noreferrer" class="btn-discord" data-i18n="discord.button">Discord</a>
+                    </div>
                 </article>
             </div>
 
@@ -141,21 +173,25 @@
 
                 <div class="card">
                     <h4 data-i18n="services.card2.title">Servidores de Discord</h4>
-                    <p data-i18n="services.card2.desc">Desarrollo de servidores de Discord personalizados con bots, tickets, reseñas automáticas y moderación estructurada.</p>
+                    <p data-i18n="services.card2.desc">Desarrollo de servidores de Discord personalizados con bots,
+                        tickets, reseñas automáticas y moderación estructurada.</p>
                 </div>
 
                 <div class="card">
                     <h4 data-i18n="services.card3.title">Bots de Discord</h4>
-                    <p data-i18n="services.card3.desc">Desarrollo de bots personalizados para servidores de Discord con funcionalidades y sistemas avanzados.</p>
+                    <p data-i18n="services.card3.desc">Desarrollo de bots personalizados para servidores de Discord con
+                        funcionalidades y sistemas avanzados.</p>
                 </div>
 
                 <div class="card">
                     <h4 data-i18n="services.card4.title">Servidores de Minecraft</h4>
-                    <p data-i18n="services.card4.desc">Desarrollo de servidores de Minecraft personalizados con economías, rangos, dungeons y optimización avanzada.</p>
+                    <p data-i18n="services.card4.desc">Desarrollo de servidores de Minecraft personalizados con
+                        economías, rangos, dungeons y optimización avanzada.</p>
                 </div>
                 <div class="card">
                     <h4 data-i18n="services.card5.title">Soporte 24/7 Post-Venta</h4>
-                    <p data-i18n="services.card5.desc">Soporte continuo y mantenimiento para asegurar el rendimiento y la estabilidad del sistema.</p>
+                    <p data-i18n="services.card5.desc">Soporte continuo y mantenimiento para asegurar el rendimiento y
+                        la estabilidad del sistema.</p>
                 </div>
             </div>
         </section>
@@ -176,7 +212,8 @@
             <p>
                 <span data-i18n="footer.contact">Contact:</span>
                 <span id="discord-tag">nyx.root</span>
-                <button id="copy-discord" class="cta small" data-i18n="copy.button">Copy</button>
+                <button id="copy-discord" class="cta cta-copy small" data-i18n="copy.button"><span
+                        class="copy-icon">📋</span> Copiar</button>
             </p>
         </div>
     </footer>

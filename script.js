@@ -1,4 +1,3 @@
-// Traducciones y selector de idioma
 const translations = {
     es: {
         "hero.title": "NYX",
@@ -68,15 +67,17 @@ const translations = {
     }
 };
 
-// UI strings
 translations.es["hero.cta"] = "Ver Proyectos";
 translations.en["hero.cta"] = "View Projects";
 translations.es["copy.button"] = "Copiar";
 translations.en["copy.button"] = "Copy";
 translations.es["copy.copied"] = "¡Copiado al portapapeles!";
 translations.en["copy.copied"] = "Copied to clipboard!";
+translations.es["details.button"] = "Ver Detalles";
+translations.en["details.button"] = "View Details";
+translations.es["discord.button"] = "Discord";
+translations.en["discord.button"] = "Discord";
 
-// Traducciones de proyectos y texto de UI
 translations.es["projects.title"] = "PROJECTS";
 translations.es["projects.p1.title"] = "Nyx Core";
 translations.es["projects.p1.desc"] = "Sistema modular para servidores y automatización de procesos.";
@@ -84,6 +85,8 @@ translations.es["projects.p2.title"] = "Dark Portal";
 translations.es["projects.p2.desc"] = "Web UI oscura con autenticación y panel de administración.";
 translations.es["projects.p3.title"] = "Nyxary";
 translations.es["projects.p3.desc"] = "Comunidad dedicada a la venta de servicios y productos digitales.";
+translations.es["projects.p4.title"] = "Exilion Network";
+translations.es["projects.p4.desc"] = "Servidor de Minecraft con economías, minijuegos y eventos personalizados.";
 
 translations.en["projects.title"] = "PROJECTS";
 translations.en["projects.p1.title"] = "Nyx Core";
@@ -92,8 +95,20 @@ translations.en["projects.p2.title"] = "Dark Portal";
 translations.en["projects.p2.desc"] = "Dark UI web with authentication and admin panel.";
 translations.en["projects.p3.title"] = "Nyxary";
 translations.en["projects.p3.desc"] = "Community dedicated to selling digital services and products.";
+translations.en["projects.p4.title"] = "Exilion Network";
+translations.en["projects.p4.desc"] = "Minecraft server with economies, minigames and custom events.";
 
-// Projects: filters + modal
+translations.es["stats.title"] = "IMPACTO";
+translations.es["stats.label1"] = "Proyectos Completados";
+translations.es["stats.label2"] = "Usuarios Activos";
+translations.es["stats.label3"] = "% Tasa de Satisfacción";
+translations.es["stats.label4"] = "Años de Experiencia";
+
+translations.en["stats.title"] = "IMPACT";
+translations.en["stats.label1"] = "Projects Completed";
+translations.en["stats.label2"] = "Active Users";
+translations.en["stats.label3"] = "% Satisfaction Rate";
+translations.en["stats.label4"] = "Years of Experience";
 function initProjects() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.project-card');
@@ -135,8 +150,6 @@ function initProjects() {
     modal.addEventListener('click', (e) => { if (e.target === modal) { modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } });
 }
 
-// Ensure projects init after translations applied (in DOMContentLoaded below we call initProjects)
-
 function applyTranslations(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -169,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animación de aparición al hacer scroll
     const elements = document.querySelectorAll('.card, .section h3, .text, .why li');
 
     const observer = new IntersectionObserver(entries => {
@@ -188,10 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Inicializar proyectos (filtrado/modal)
     initProjects();
+    initStatsAnimation();
 
-    // Copiar etiqueta de Discord al portapapeles
     const copyBtn = document.getElementById('copy-discord');
     const discordTag = document.getElementById('discord-tag');
     function showToast(msg) {
@@ -218,14 +229,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializar hero generativo (particles + parallax)
     initHeroCanvas();
 
-    // Inicializar lazy-loading de iframes (project demos)
     initLazyIframes();
 });
 
-/* Generative hero: lightweight particle field with parallax */
 function initHeroCanvas() {
     const canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
@@ -263,13 +271,11 @@ function initHeroCanvas() {
 
     function draw() {
         ctx.clearRect(0, 0, w, h);
-        // dynamic background gradient
         const g = ctx.createLinearGradient(0, 0, w, h);
         g.addColorStop(0, 'rgba(6,6,6,1)');
         g.addColorStop(1, 'rgba(12,6,6,1)');
         ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
 
-        // subtle moving grid (technical feel)
         ctx.save();
         ctx.globalAlpha = 0.035;
         ctx.strokeStyle = 'rgba(255,255,255,0.06)';
@@ -286,15 +292,12 @@ function initHeroCanvas() {
         }
         ctx.restore();
 
-        // update + draw particles
         for (let i = 0; i < particles.length; i++) {
             const p = particles[i];
-            // gentle orbiting motion
             p.phase += 0.002 + (i % 3) * 0.0005;
             const wobbleX = Math.sin(p.phase * 1.2) * 6;
             const wobbleY = Math.cos(p.phase * 0.9) * 4;
 
-            // attraction to mouse with falloff
             const dx = mouse.x - p.x;
             const dy = mouse.y - p.y;
             const dist = Math.hypot(dx, dy) + 0.01;
@@ -305,25 +308,20 @@ function initHeroCanvas() {
             p.x += p.vx + wobbleX * 0.02;
             p.y += p.vy + wobbleY * 0.02;
 
-            // damping
             p.vx *= 0.94; p.vy *= 0.94;
 
-            // wrap
             if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
             if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
 
-            // draw particle with inner glow
             const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
             const alpha = Math.max(0.06, 1 - distToMouse / (w * 0.6));
             ctx.beginPath();
             ctx.fillStyle = `rgba(255,40,40,${alpha * 0.9})`;
             ctx.arc(p.x, p.y, p.r + 0.6, 0, Math.PI * 2);
             ctx.fill();
-            // small bright core
             ctx.beginPath(); ctx.fillStyle = `rgba(255,120,120,${Math.min(0.9, alpha * 1.2)})`; ctx.arc(p.x, p.y, p.r * 0.5, 0, Math.PI * 2); ctx.fill();
         }
 
-        // connections between close particles
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
         for (let i = 0; i < particles.length; i++) {
@@ -344,7 +342,6 @@ function initHeroCanvas() {
         }
         ctx.restore();
 
-        // subtle radial vignette
         const grd = ctx.createRadialGradient(w * 0.5, h * 0.5, Math.max(w, h) * 0.3, w * 0.5, h * 0.5, Math.max(w, h) * 0.95);
         grd.addColorStop(0, 'rgba(0,0,0,0)');
         grd.addColorStop(1, 'rgba(0,0,0,0.45)');
@@ -357,7 +354,6 @@ function initHeroCanvas() {
     draw();
 }
 
-// Lazy-load iframes with data-src when they enter viewport
 function initLazyIframes() {
     const iframes = document.querySelectorAll('iframe[data-src]');
     if (!iframes.length) return;
@@ -373,7 +369,41 @@ function initLazyIframes() {
     }, { rootMargin: '200px 0px' });
 
     iframes.forEach(f => {
-        // keep iframe blank until in view
         obs.observe(f);
     });
+}
+
+function initStatsAnimation() {
+    const statValues = document.querySelectorAll('.stat-value');
+    if (!statValues.length) return;
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const element = entry.target;
+            const target = parseInt(element.dataset.value);
+            animateCounter(element, target);
+            observer.unobserve(element);
+        });
+    }, { threshold: 0.5 });
+
+    statValues.forEach(stat => observer.observe(stat));
+}
+
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = Math.ceil(target / 60);
+    const duration = 60;
+    let elapsed = 0;
+
+    const interval = setInterval(() => {
+        elapsed++;
+        current = Math.min(current + increment, target);
+        element.textContent = current;
+
+        if (current >= target || elapsed >= duration) {
+            element.textContent = target;
+            clearInterval(interval);
+        }
+    }, 16);
 }
